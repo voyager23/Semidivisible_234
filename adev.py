@@ -44,15 +44,22 @@ def seq_primes(lo,hi):
 #-----------------------------------------------------------------------
 
 def main(args):
-	Limit = 999966663333
+	#Limit = 999966663333
+	Limit = 15
 	hiprime = nextprime(sqrt(Limit))
 	print(hiprime)
 	
 	lp = 2
 	hp = nextprime(lp)
+	terms = 0
+	intervals = 0
 	while True:
 		u = seq_primes(lp,hp)
+		while u[-1] > Limit:
+			u.pop()
 		print(u)
+		terms += len(u)
+		intervals += 1
 		
 		# process returned list, drop duplicates and numbers exceeding Limit
 		
@@ -60,7 +67,7 @@ def main(args):
 		hp = nextprime(lp)
 		if hp > hiprime:
 			break
-
+	print(f"{terms} terms found.")
 	return 0
 
 if __name__ == '__main__':

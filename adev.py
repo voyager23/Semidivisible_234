@@ -15,7 +15,8 @@ def seq_primes(lo,hi):
 	losqr = lo*lo
 	hisqr = hi*hi
 	# list some multiples of lo prime
-	a = [(lo * x) for x in range(lo, (hisqr//lo + 1), +1 )]	
+	a = [(lo * x) for x in range(lo, (hisqr//lo + 1), +1 )]
+	# list some multiples of hi prime	
 	b = [(hi * x) for x in range(hi, (losqr//hi), -1 )]	
 	b.reverse()	
 	#consolidate two lists
@@ -36,7 +37,7 @@ def seq_primes(lo,hi):
 				print(f"Dropping {a[0]}")
 				a.pop(0)
 				b.pop(0)
-	
+	print(unique)
 	# determine if list entry is semidivisible
 	
 	return unique
@@ -45,11 +46,11 @@ def seq_primes(lo,hi):
 
 def main(args):
 	#Limit = 999966663333
-	Limit = 15
+	Limit = 25
 	hiprime = nextprime(sqrt(Limit))
 	print(hiprime)
 	
-	lp = 2
+	lp = 3
 	hp = nextprime(lp)
 	terms = 0
 	intervals = 0

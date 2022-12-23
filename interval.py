@@ -56,14 +56,14 @@ def seq_primes(lo,hi):
 				b.pop(0)
 	#print(unique)
 	unique = unique[1:-1]
-	print(unique)	#[10, 12, 18, 20, 21, 24]
+	#print(unique)	#[10, 12, 18, 20, 21, 24]
 	# now determine if any terms are SemiDivNum
 	u = []
 	for n in unique:
 		x = n%lo
 		y = n%hi
 		if (x != y) and ((x == 0) or (y == 0)):
-			print(f"{n} is SDN")
+			#print(f"{n} is SDN")
 			u.append(n)
 	
 	return u
@@ -71,9 +71,11 @@ def seq_primes(lo,hi):
 #-----------------------------------------------------------------------
 def main(args):
 	limit = 1000
+	print(limit)
 	lps = 3
 	hps = 5
 	terms = 1	# 8
+	Sum = 8
 	while True:
 		u = seq_primes(lps,hps)
 		lps = hps
@@ -84,11 +86,13 @@ def main(args):
 				u.pop()
 			# update terms variable
 			terms += len(u)
+			Sum += sum(u)
 			break
 		else:
 			terms += len(u)
+			Sum += sum(u)
 		
-	print(f"Terms: {terms}")
+	print(f"Terms: {terms} Sum: {Sum}")
 	return 0
 
 if __name__ == '__main__':
